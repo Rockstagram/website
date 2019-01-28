@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rockstagram – My Account</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div id="loading">Loading…</div>
+
+    <div id="notloggedin" style="display: none">
+      <h1 class="title">
+        Please
+        <button class="btn btn--cta" data-a11y-dialog-show="auth-dialog">
+          login
+        </button>
+        to access your Account!
+      </h1>
+      or <a href="/">get back</a>
+    </div>
+
+    <div id="loggedin" style="display: none;">
+      <tjb-menu data-title="Main Menu" class="main-menu">
+        <span slot="logo">
+          <img src="img/logo.png" alt="R" class="nav-logo" /> Rockstagram
+        </span>
+
+        <tjb-menu-item slot="menu-item">
+          <a class="nav-link" href="/" slot="menu-item-link"> Home </a>
+        </tjb-menu-item>
+        <tjb-menu-item slot="menu-item">
+          <a class="btn" id="logout" href="#logout" slot="menu-item-link">
+            Log-Out
+          </a>
+        </tjb-menu-item>
+      </tjb-menu>
+
+      <main id="main">
+        <section id="account">
+          <h1 class="main_title">Account</h1>
+          <div class="account-content">
+            <div>
+              <h2 class="title">My Account</h2>
+              <label for="email" class="label">
+                Username:
+                <input
+                  class="input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  readonly
+                />
+              </label>
+              <br />
+              <button type="button" class="btn" id="reset">
+                Reset Password
+              </button>
+            </div>
+
+            <div>
+              <h2 class="title">Current Subscription</h2>
+              <label for="plan" class="label">
+                Your plan:
+                <input
+                  id="plan"
+                  class="input"
+                  name="plan"
+                  type="text"
+                  value="loading…"
+                  readonly
+                />
+              </label>
+              <br />
+              <label for="costs" class="label">
+                Monthly Costs:
+                <input
+                  id="costs"
+                  class="input"
+                  name="costs"
+                  type="text"
+                  value="loading…"
+                  readonly
+                />
+              </label>
+              <br />
+              <h3>Active Features:</h3>
+              <label for="c-follower" class="label">
+                Insta Follower
+                <input
+                  type="checkbox"
+                  name="c-follower"
+                  id="c-follower"
+                  checked="true"
+                  readonly
+                  disabled
+                />
+              </label>
+              <br />
+              <label for="c-cleaner" class="label">
+                Insta Cleaner
+                <input
+                  type="checkbox"
+                  name="c-cleaner"
+                  id="c-cleaner"
+                  readonly
+                  disabled
+                />
+              </label>
+              <br />
+              <label for="c-commenter" class="label">
+                Insta Commenter
+                <input
+                  type="checkbox"
+                  name="c-commenter"
+                  id="c-commenter"
+                  readonly
+                  disabled
+                />
+              </label>
+              <br />
+              <label for="c-messenger" class="label">
+                Insta Messenger
+                <input
+                  type="checkbox"
+                  name="c-messenger"
+                  id="c-messenger"
+                  readonly
+                  disabled
+                />
+              </label>
+            </div>
+            <div>
+              <h2 class="title">Change Subscription</h2>
+              <p>
+                <em>
+                  Note: downgrading a plan will only take effect on the billing
+                  of the upcoming month. Upgrading will be instant.
+                </em>
+              </p>
+              <label for="subscription" class="label">
+                Free
+                <input
+                  type="radio"
+                  name="subscription"
+                  id="s-free"
+                  checked="true"
+                />
+              </label>
+              <br />
+              <label for="subscription" class="label">
+                Professional
+                <input
+                  type="radio"
+                  name="subscription"
+                  id="s-professional"
+                  checked
+                />
+              </label>
+              <br />
+              <label for="subscription" class="label">
+                Ultimate
+                <input
+                  type="radio"
+                  name="subscription"
+                  id="s-ultimate"
+                  checked
+                />
+              </label>
+              <br />
+              <button
+                type="button"
+                id="upgrade"
+                class="btn"
+                data-a11y-dialog-show="not-awailable-dialog"
+              >
+                Upgrade
+              </button>
+            </div>
+            <div>
+              <h2>Download</h2>
+              <a href="#download" id="download" class="btn btn--cta"
+                >Download the APP</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="auth-dialog">
+      <div class="dialog" role="dialog" aria-labelledby="dialog-title">
+        <div
+          tabindex="-1"
+          data-a11y-dialog-hide="data-a11y-dialog-hide"
+          class="dialog-backdrop"
+        ></div>
+        <div class="dialog-content">
+          <h2 id="dialog-title" class="dialog-title">Authentification</h2>
+
+          <tjb-auth showlogin="true">
+            <input
+              class="btn btn--cta btn--fs"
+              value="LOGIN"
+              type="submit"
+              slot="submit-login"
+            />
+            <input
+              class="btn btn--cta btn--fs"
+              value="REGISTER"
+              type="submit"
+              slot="submit-register"
+            />
+          </tjb-auth>
+        </div>
+      </div>
+    </div>
+
+    <div id="not-awailable-dialog">
+      <div
+        class="dialog"
+        role="dialog"
+        aria-labelledby="dialog-awailable-title"
+      >
+        <div tabindex="-1" class="dialog-backdrop"></div>
+        <div class="dialog-content">
+          <h2 id="dialog-awailable-title" class="dialog-title">
+            Currently not available
+          </h2>
+          <p>
+            This functionality is currently not available. Let us know which
+            functionality you are interested and you will be notified & get a
+            50% discount as soon as it is available.
+          </p>
+          <form action="POST" id="na-form">
+            <label for="f-follower" class="label">
+              Insta Follower
+              <input type="checkbox" name="f-follower" id="f-follower" />
+            </label>
+            <br />
+            <label for="f-cleaner" class="label">
+              Insta Cleaner
+              <input type="checkbox" name="f-cleaner" id="f-cleaner" />
+            </label>
+            <br />
+            <label for="f-commenter" class="label">
+              Insta Commenter
+              <input type="checkbox" name="f-commenter" id="f-commenter" />
+            </label>
+            <br />
+            <label for="f-messenger" class="label">
+              Insta Messenger
+              <input type="checkbox" name="f-messenger" id="f-messenger" />
+            </label>
+            <br />
+            <button type="submit" class="btn btn--cta" id="na-submit">
+              Submit
+            </button>
+          </form>
+          <div id="thank-you" style="display: none;">
+            <h2>Thank you</h2>
+            <button
+              id="thank-you-close"
+              class="btn btn--fs"
+              data-a11y-dialog-hide="data-a11y-dialog-hide"
+            >
+              Close Dialog
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyC1mo2oVX9WNookrfW-xsdNpt8kH2X-aZw",
+        authDomain: "rockstagram-3ddd4.firebaseapp.com",
+        databaseURL: "https://rockstagram-3ddd4.firebaseio.com",
+        projectId: "rockstagram-3ddd4",
+        storageBucket: "rockstagram-3ddd4.appspot.com",
+        messagingSenderId: "769218218759"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script
+      type="module"
+      src="https://tjb-webcomponents.github.io/tjb-menu/tjb-menu.min.js"
+    ></script>
+    <script
+      type="module"
+      src="https://tjb-webcomponents.github.io/tjb-auth/tjb-auth.min.js"
+    ></script>
+    <script src="plugins/a11y-dialog.js"></script>
+    <script src="js/not-available.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/account.js"></script>
+  </body>
+</html>

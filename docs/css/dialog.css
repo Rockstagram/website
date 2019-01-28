@@ -1,0 +1,58 @@
+
+[data-a11y-dialog-native] > :first-child {
+  display: none;
+}
+
+.dialog[open] {
+  display: block;
+}
+
+.dialog {
+  background: transparent;
+  border: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: none;
+  z-index: 1000;
+}
+
+.dialog-container[aria-hidden="true"] {
+  display: none;
+}
+
+.dialog-backdrop {
+  background: black;
+  height: 100%;
+  left: 0;
+  opacity: 0.95;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.dialog-content {
+  background: transparent;
+  margin: auto;
+  position: relative;
+  width: 350px;
+}
+
+.dialog-close {
+  font-size: 3rem;
+  position: fixed;
+  right: 20px;
+}
+
+.dialog-title {
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+  background: transparent;
+  text-shadow: none;
+}

@@ -1,0 +1,183 @@
+@media (max-width:1199px) {
+  /* Main Menu Area css
+	============================================================================================ */
+
+  .header_area .navbar .nav .nav-item {
+    margin-right: 28px;
+  }
+
+  /* End Main Menu Area css
+	============================================================================================ */
+
+  /* End Home Banner Area css
+	============================================================================================ */
+
+  .home_banner_area .banner_inner .banner_content h2 br {
+    display: none;
+    font-size: 36px;
+  }
+
+  .home_banner_area .banner_inner .banner_content h2 {
+    font-size: 36px;
+    line-height: 45px;
+  }
+}
+
+@media (max-width:991px) {
+  /* Main Menu Area css
+	============================================================================================ */
+
+  .header_area .navbar {
+    background: #000;
+  }
+
+  .navbar .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .nav {
+    padding: 0px 0px;
+  }
+
+  .header_area + section,  .header_area + row,  .header_area + div {
+    margin-top: 117px;
+  }
+
+  .header_top .nav {
+    padding: 0px;
+  }
+
+  .header_area .navbar .nav .nav-item .nav-link {
+    line-height: 40px;
+    margin-right: 0px;
+    display: block;
+    border-bottom: 1px solid #ededed33;
+    border-radius: 0px;
+  }
+
+  .header_area .navbar .nav .nav-item {
+    margin-right: 0px;
+  }
+
+  .header_area + section,  .header_area + row,  .header_area + div {
+    margin-top: 71px;
+  }
+
+  .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
+    line-height: 40px;
+  }
+
+  .home_banner_area .banner_inner .home_left_img {
+    display: none;
+  }
+
+  .left_side_text {
+    margin-bottom: 50px;
+  }
+
+  .price_item {
+    max-width: 360px;
+    margin: 0px auto 30px;
+  }
+
+  .price_inner {
+    margin-bottom: -30px;
+  }
+}
+
+@media (max-width:767px) {
+  .home_banner_area .banner_inner .banner_content {
+    margin-top: 0px;
+  }
+
+  .home_banner_area .banner_inner .banner_content h3 {
+    font-size: 30px;
+  }
+
+  .home_banner_area .banner_inner .banner_content p br {
+    display: none;
+  }
+
+  .home_banner_area .banner_inner .banner_content h3 span {
+    line-height: 45px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+
+  .made_life_inner .nav.nav-tabs li {
+    flex: 0 0 50%;
+    max-width: calc(25% - 20px);
+    margin: 10px;
+  }
+
+  .made_life_inner .nav.nav-tabs {
+    margin-bottom: -15px;
+  }
+}
+
+@media (max-width:575px) {
+  .top_menu {
+    display: none;
+  }
+
+  .header_area + section,  .header_area + row,  .header_area + div {
+    margin-top: 71px;
+  }
+
+  /* Home Banner Area css
+	============================================================================================ */
+
+  .home_banner_area .banner_inner .banner_content h2 {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .home_banner_area .banner_inner .banner_content img {
+    display: none;
+  }
+
+  .home_banner_area .banner_inner .banner_content h5 {
+    margin-top: 0px;
+  }
+
+  /* End Home Banner Area css
+	============================================================================================ */
+
+  section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .main_title h2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width:480px) {
+  .home_banner_area .banner_inner .banner_content {
+    padding: 30px 15px;
+    margin-top: 0px;
+  }
+
+  .home_banner_area .banner_inner .banner_content h3 {
+    font-size: 24px;
+  }
+
+  .testi_item .media .d-flex {
+    padding-right: 0px;
+  }
+
+  .testi_item .media .d-flex img {
+    width: auto;
+    margin-bottom: 15px;
+  }
+
+  .testi_item .media {
+    display: block;
+  }
+
+  .banner_btn {
+    margin-bottom: 20px;
+  }
+}
