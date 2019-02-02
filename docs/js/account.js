@@ -10,6 +10,34 @@
   );
 
   /*-------------------------------------------------------------------------------
+    Download URLS
+  -------------------------------------------------------------------------------*/
+  fetch("https://api.github.com/repos/Rockstagram/app/releases/latest")
+    .then(ok => ok.json())
+    .then(latest => {
+      const platforms = [
+        { id: "mac", ext: ".dmg" },
+        { id: "win", ext: ".exe" },
+        { id: "lin", ext: ".AppImage" }
+      ];
+      for (let i = 0, il = latest.assets.length; i < il; i++) {
+        console.log(il);
+        const asset = latest.assets[i];
+        for (let j = 0, jl = platforms.length; j < jl; j++) {
+          const p = platforms[j];
+          console.log(asset.name, p.ext);
+          if (asset.name.indexOf(p.ext) > -1) {
+            const node = document.querySelector(`#download-${p.id}`);
+            node.href = asset.browser_download_url;
+            node.title = asset.name;
+            platforms.splice(j, 1);
+            break;
+          }
+        }
+      }
+    });
+
+  /*-------------------------------------------------------------------------------
     Auth
   -------------------------------------------------------------------------------*/
   const authController = new Auth({ dialog });

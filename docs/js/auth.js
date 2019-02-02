@@ -14,15 +14,24 @@ class Auth {
       if (user) {
         console.log("USER SIGNED IN");
         this.uid = user.uid;
-        firebase
-          .database()
-          .ref(`users/${user.uid}`)
-          .on("value", snapshot => (this.user = snapshot.val()));
+        this._authUser = user;
         // if (!user.emailVerified)
         //   user
         //     .sendEmailVerification()
         //     .then(() => console.log("verification send"))
         //     .catch(error => console.log("Error: ", error));
+        firebase
+          .database()
+          .ref(`users/${user.uid}`)
+          .on("value", snapshot => (this.user = snapshot.val()));
+        firebase
+          .database()
+          .ref(`users/${user.uid}/intent`)
+          .set(this.intent);
+        firebase
+          .database()
+          .ref(`intent/${this.intent}/${user.uid}`)
+          .set(true);
       } else {
         console.log("NO USER");
       }
@@ -104,9 +113,12 @@ class Auth {
 
   handleSuccess(event) {
     console.log("worked…", event.ok);
+    if (this._authUser && !this._authUser.emailVerified)
+      this._authUser.sendEmailVerification();
     return this.node.success(event.area, event.ok).then(() => {
       this.dialog.hide();
-      return this[`${event.area}Success`]();
+      if (this.next) this.next();
+      if (this[`${event.area}Success`]) return this[`${event.area}Success`]();
     });
   }
 

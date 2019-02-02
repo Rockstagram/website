@@ -15,11 +15,17 @@
   /*-------------------------------------------------------------------------------
     Download
   -------------------------------------------------------------------------------*/
-  const handleDownloadRequests = () => {
+  const handleRequests = ref => {
     console.log("handle DL request");
-    if (authController.isLoggedIn) console.log("download the app!");
-    else {
+    authController.intent = ref;
+    if (authController.isLoggedIn) {
+      console.log("download the app!");
+      location.href = `/account#${ref}`;
+    } else {
       dialog.show();
+      authController.next = () => {
+        location.href = `/account#${ref}`;
+      };
       authController.node.showregister = "true";
     }
   };
@@ -27,8 +33,16 @@
   document
     .querySelectorAll(".js-button-download")
     .forEach(dl =>
-      dl.addEventListener("click", () => handleDownloadRequests())
+      dl.addEventListener("click", () => handleRequests("download-app"))
     );
+
+  document
+    .querySelectorAll(".js-button-buy-m")
+    .forEach(dl => dl.addEventListener("click", () => handleRequests("buy-m")));
+
+  document
+    .querySelectorAll(".js-button-buy-l")
+    .forEach(dl => dl.addEventListener("click", () => handleRequests("buy-l")));
 
   /*-------------------------------------------------------------------------------
   Navbar 
