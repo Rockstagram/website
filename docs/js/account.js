@@ -26,7 +26,7 @@
         for (let j = 0, jl = platforms.length; j < jl; j++) {
           const p = platforms[j];
           console.log(asset.name, p.ext);
-          if (asset.name.indexOf(p.ext) > -1) {
+          if (asset.name.endsWith(p.ext)) {
             const node = document.querySelector(`#download-${p.id}`);
             node.href = asset.browser_download_url;
             node.title = asset.name;
