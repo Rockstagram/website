@@ -95,12 +95,7 @@
                 />
               </label>
               <br />
-              <button
-                type="button"
-                id="upgrade"
-                class="btn btn--cta"
-                data-a11y-dialog-show="not-awailable-dialog"
-              >
+              <button type="button" id="upgrade" class="btn btn--cta">
                 Get Professional
               </button>
             </div>
@@ -137,61 +132,6 @@
       </div>
     </div>
 
-    <div id="not-awailable-dialog">
-      <div
-        class="dialog"
-        role="dialog"
-        aria-labelledby="dialog-awailable-title"
-      >
-        <div tabindex="-1" class="dialog-backdrop"></div>
-        <div class="dialog-content">
-          <h2 id="dialog-awailable-title" class="dialog-title">
-            Currently not available
-          </h2>
-          <p>
-            This functionality is currently not available. Let us know which
-            functionality you are interested and you will be notified & get a
-            50% discount as soon as it is available.
-          </p>
-          <form action="POST" id="na-form">
-            <label for="f-follower" class="label">
-              Insta Follower
-              <input type="checkbox" name="f-follower" id="f-follower" />
-            </label>
-            <br />
-            <label for="f-cleaner" class="label">
-              Insta Cleaner
-              <input type="checkbox" name="f-cleaner" id="f-cleaner" />
-            </label>
-            <br />
-            <label for="f-commenter" class="label">
-              Insta Commenter
-              <input type="checkbox" name="f-commenter" id="f-commenter" />
-            </label>
-            <br />
-            <label for="f-messenger" class="label">
-              Insta Messenger
-              <input type="checkbox" name="f-messenger" id="f-messenger" />
-            </label>
-            <br />
-            <button type="submit" class="btn btn--cta" id="na-submit">
-              Submit
-            </button>
-          </form>
-          <div id="thank-you" style="display: none;">
-            <h2>Thank you</h2>
-            <button
-              id="thank-you-close"
-              class="btn btn--fs"
-              data-a11y-dialog-hide="data-a11y-dialog-hide"
-            >
-              Close Dialog
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script>
       var config = {
@@ -213,7 +153,6 @@
       src="https://tjb-webcomponents.github.io/tjb-auth/tjb-auth.min.js"
     ></script>
     <script src="plugins/a11y-dialog.js"></script>
-    <script src="js/not-available.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/info.js"></script>
     <script src="js/account.js"></script>

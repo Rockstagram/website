@@ -5,9 +5,6 @@
   Dialog
   -------------------------------------------------------------------------------*/
   const dialog = new A11yDialog(document.getElementById("auth-dialog"));
-  const notAvailableDialog = new A11yDialog(
-    document.getElementById("not-awailable-dialog")
-  );
 
   /*-------------------------------------------------------------------------------
     Download URLS
@@ -41,10 +38,6 @@
     Auth
   -------------------------------------------------------------------------------*/
   const authController = new Auth({ dialog });
-  const notAvailable = new NotAvailable({
-    dialog: notAvailableDialog,
-    auth: authController
-  });
 
   firebase.auth().onAuthStateChanged(user => {
     document.querySelector("#loading").style.display = "none";
@@ -62,17 +55,21 @@
 
   async function setup(user) {
     document.querySelector("#email").value = user.email;
-    const planNode = document.querySelector("#plan");
 
     authController.on("user:change", user => {
       console.log("user:change handler");
+      const upgradeButton = document.querySelector("#upgrade");
 
       if (user.trial) {
         document.querySelector("#plan").value = "Free trial";
-        document.querySelector("#upgrade").style.display = "block";
+        upgradeButton.style.display = "block";
+        upgradeButton.addEventListener(
+          "click",
+          () => (location.href = `/get-pro.html`)
+        );
       } else {
         document.querySelector("#plan").value = "Professional";
-        document.querySelector("#upgrade").style.display = "none";
+        upgradeButton.style.display = "none";
       }
     });
 

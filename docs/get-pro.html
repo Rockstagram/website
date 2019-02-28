@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Rockstagram – Get Professional</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/get-pro.css" />
+  </head>
+  <body>
+    <div id="loading">Loading…</div>
+
+    <div id="notloggedin" style="display: none">
+      <h1 class="title">
+        Please
+        <button class="btn btn--cta" data-a11y-dialog-show="auth-dialog">
+          login
+        </button>
+        to upgrade your Account!
+      </h1>
+      or <a href="/account.html">get back</a>
+    </div>
+
+    <div id="loggedin" style="display: none;">
+      <tjb-menu data-title="Main Menu" class="main-menu">
+        <a href="https://rockstagram.app/" slot="logo">
+          <img src="img/logo.png" alt="Rockstagram" class="nav-logo" />
+        </a>
+
+        <tjb-menu-item slot="menu-item">
+          <a class="nav-link" href="/" slot="menu-item-link"> Home </a>
+        </tjb-menu-item>
+        <tjb-menu-item slot="menu-item">
+          <a class="btn" id="logout" href="#logout" slot="menu-item-link">
+            Log-Out
+          </a>
+        </tjb-menu-item>
+      </tjb-menu>
+
+      <main id="main">
+        <h1 class="main_title">Get Professional</h1>
+        <form id="get-pro-form">
+          <h2 class="sub_title">For User:</h2>
+          <fieldset>
+            <div>
+              <label for="username" class="label">
+                Username/E-Mail:
+                <input
+                  class="input"
+                  id="username"
+                  type="text"
+                  name="username"
+                  readonly
+                />
+              </label>
+            </div>
+          </fieldset>
+
+          <h2 class="sub_title">Billing Details</h2>
+
+          <fieldset>
+            <div>
+              <label for="firstname" class="label">
+                Firstname:
+                <input
+                  class="input"
+                  id="firstname"
+                  type="text"
+                  name="firstname"
+                />
+              </label>
+            </div>
+            <div>
+              <label for="lastname" class="label">
+                Lastname:
+                <input
+                  class="input"
+                  id="lastname"
+                  type="text"
+                  name="lastname"
+                />
+              </label>
+            </div>
+            <div>
+              <label for="email" class="label">
+                Email address:
+                <input
+                  class="input"
+                  id="email"
+                  type="email"
+                  name="email"
+                  readonly
+                />
+              </label>
+            </div>
+          </fieldset>
+
+          <h2 class="sub_title">Payment Details</h2>
+          <fieldset>
+            <label for="payment" class="label">
+              Credit Card:
+              <input
+                class="input"
+                id="payment-cc"
+                type="radio"
+                name="payment"
+                value="credit"
+                checked
+              />
+            </label>
+          </fieldset>
+          <fieldset>
+            <div>
+              <label for="cc-name" class="label">
+                Name on Card:
+                <input class="input" id="cc-name" type="text" name="cc-name" />
+              </label>
+            </div>
+            <div>
+              <label for="cc-num" class="label">
+                Card Number:
+                <input class="input" id="cc-num" type="text" name="cc-num" />
+              </label>
+            </div>
+            <div>
+              <label for="cc-valid" class="label">
+                Valid until:
+                <input
+                  class="input"
+                  id="cc-valid"
+                  type="text"
+                  name="cc-valid"
+                />
+              </label>
+            </div>
+            <div>
+              <label for="cc-ccv" class="label">
+                CCV (secure code, often found on the back of the card):
+                <input class="input" id="cc-ccv" type="text" name="cc-ccv" />
+              </label>
+            </div>
+          </fieldset>
+          <button class="btn btn--cta" type="submit">
+            Pay&nbsp;<span id="pricing">59</span>$ / Month
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <div id="success" style="display: none;">
+      <h1 class="main_title">Congratulations!</h1>
+      <p>
+        Rockstagram is currently in BETA phase.<br />
+        That means that <em>there is no Professional plan</em> yet.<br />
+      </p>
+      <p>
+        So we upgraded your account to
+        <strong>Professional for free</strong>.<br />
+        That’s right, it will cost you 0.00$/m so be completely free!<br />
+      </p>
+      <p>
+        In exchange for the free plan, we would love to hear your feedback.<br />
+        Which is why we added your email to our BETA clients list.<br />
+        We will ask you questions about the product once in a while.
+      </p>
+      <p>
+        If you find any bug, have any feature request or something else you want
+        our developers to know, don’t hesitate and write us an email via:
+        <a href="mailto:mail@rockstagram.app">mail@rockstagram.app</a>
+      </p>
+      <p>
+        <a href="/">Back to rockstagram</a>
+      </p>
+    </div>
+
+    <div id="auth-dialog">
+      <div class="dialog" role="dialog" aria-labelledby="dialog-title">
+        <div
+          tabindex="-1"
+          data-a11y-dialog-hide="data-a11y-dialog-hide"
+          class="dialog-backdrop"
+        ></div>
+        <div class="dialog-content">
+          <h2 id="dialog-title" class="dialog-title">Authentification</h2>
+
+          <tjb-auth showlogin="true">
+            <input
+              class="btn btn--cta btn--fs"
+              value="LOGIN"
+              type="submit"
+              slot="submit-login"
+            />
+            <input
+              class="btn btn--cta btn--fs"
+              value="REGISTER"
+              type="submit"
+              slot="submit-register"
+            />
+          </tjb-auth>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyC1mo2oVX9WNookrfW-xsdNpt8kH2X-aZw",
+        authDomain: "rockstagram-3ddd4.firebaseapp.com",
+        databaseURL: "https://rockstagram-3ddd4.firebaseio.com",
+        projectId: "rockstagram-3ddd4",
+        storageBucket: "rockstagram-3ddd4.appspot.com",
+        messagingSenderId: "769218218759"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script
+      type="module"
+      src="https://tjb-webcomponents.github.io/tjb-menu/tjb-menu.min.js"
+    ></script>
+    <script
+      type="module"
+      src="https://tjb-webcomponents.github.io/tjb-auth/tjb-auth.min.js"
+    ></script>
+    <script src="plugins/a11y-dialog.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/info.js"></script>
+    <script src="js/get-pro.js"></script>
+  </body>
+</html>
