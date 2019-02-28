@@ -64,7 +64,9 @@
       });
 
     document
-      .querySelector("#logout")
-      .addEventListener("click", () => authController.handleLogout());
+      .querySelectorAll(".logout")
+      .forEach(btn =>
+        btn.addEventListener("click", () => authController.handleLogout())
+      );
   }
 })();
