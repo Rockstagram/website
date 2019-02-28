@@ -66,28 +66,14 @@
 
     authController.on("user:change", user => {
       console.log("user:change handler");
-      const plan = user.plan;
 
-      if (plan === "plan-s") {
-        planNode.value = "Free";
-        document.querySelector("#c-follower").checked = true;
+      if (user.trial) {
+        document.querySelector("#plan").value = "Free trial";
+        document.querySelector("#upgrade").style.display = "block";
+      } else {
+        document.querySelector("#plan").value = "Professional";
+        document.querySelector("#upgrade").style.display = "none";
       }
-      if (plan === "plan-m") {
-        planNode.value = "Professional";
-        document.querySelector("#c-follower").checked = true;
-        document.querySelector("#c-cleaner").checked = true;
-      }
-      if (plan === "plan-l") {
-        planNode.value = "Ultimate";
-        document.querySelector("#c-follower").checked = true;
-        document.querySelector("#c-cleaner").checked = true;
-        document.querySelector("#c-commenter").checked = true;
-        document.querySelector("#c-messenger").checked = true;
-      }
-
-      infoController.prices.then(prices => {
-        document.querySelector("#costs").value = prices[plan];
-      });
     });
 
     document
